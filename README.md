@@ -63,6 +63,9 @@ Click **Try Demo** on the welcome screen to walk through the full workflow using
 | 10 | Recommendation generation |
 | 11 | Full report with PDF export |
 
+## How this was built
+This app was vibecoded — meaning the implementation was built with AI assistance. However, the core logic of the application lives in the prompt files in /prompts, and those were researched, designed, and written by me. The prompts define how the app thinks, what questions it asks, how it evaluates problems, and how it generates recommendations. If you're curious about AI-assisted product development, this project is a practical example of separating "what the AI does" from "how a human directs it."
+
 ## Notes
 
 - Session state is stored in `localStorage` under `gatekeeper_session`
