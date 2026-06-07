@@ -32,6 +32,7 @@ export default function Home() {
   const [qualifyMsg, setQualifyMsg] = useState('')
   const [currentQuestion, setCurrentQuestion] = useState('')
   const [initialized, setInitialized] = useState(false)
+  const [showResume, setShowResume] = useState(false)
 
   useEffect(() => {
     const apiKey = getApiKey()
@@ -40,11 +41,21 @@ export default function Home() {
       setShowSetupWizard(true)
     } else if (saved && saved.currentStep > 0) {
       setSessionState(saved)
+      setShowResume(true)
     } else {
       setSessionState({ ...initialSession })
     }
     setInitialized(true)
   }, [])
+
+  useEffect(() => {
+    if (session && session.currentStep === 2 && !currentQuestion && !showResume) {
+      if (isDemoMode) {
+        const idx = Math.min(session.questionCount ?? 0, demoDiscoveryFlow.length - 1)
+        setCurrentQuestion(demoDiscoveryFlow[idx].message)
+      }
+    }
+  }, [session, showResume])
 
   function save(updates) {
     const next = { ...session, ...updates }
@@ -60,6 +71,7 @@ export default function Home() {
     setIsDemoMode(false)
     setQualifyMsg('')
     setCurrentQuestion('')
+    setShowResume(false)
   }
 
   function handleEditPrevious() {
@@ -105,7 +117,10 @@ export default function Home() {
   }
 
   async function handleWelcomeSubmit(problem, resume = false) {
-    if (resume) return
+    if (resume) {
+      setShowResume(false)
+      return
+    }
 
     const s0 = save({ ...initialSession, originalProblem: problem })
     setLoading(true)
@@ -367,11 +382,11 @@ export default function Home() {
 
       {!error && (
         <>
-          {step === 0 && (
+          {(step === 0 || showResume) && (
             <WelcomeScreen
               onSubmit={handleWelcomeSubmit}
               onDemo={handleDemo}
-              existingSession={null}
+              existingSession={showResume ? session : null}
             />
           )}
 
