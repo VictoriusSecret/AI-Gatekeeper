@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem *)",
+      "PowerShell(Get-Command *)",
+      "PowerShell(winget *)",
+      "PowerShell(npm *)",
+      "PowerShell(npm install *)"
+    ]
+  }
+}
