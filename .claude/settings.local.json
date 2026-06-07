@@ -5,7 +5,30 @@
       "PowerShell(Get-Command *)",
       "PowerShell(winget *)",
       "PowerShell(npm *)",
-      "PowerShell(npm install *)"
+      "PowerShell(npm install *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git commit *)",
+      "Bash(node -e \"const m = require\\('./src/lib/demo-data.js'\\); const exports = ['demoQualification', 'demoDiscoveryFlow', 'demoProblemBrief', 'demoRootCauseAnalysis', 'demoResearchDecision', 'demoExternalResearch', 'demoResearchSynthesis', 'demoStrategicAnalysis', 'demoRecommendation']; const missing = exports.filter\\(e => !m[e]\\); if \\(missing.length\\) { console.log\\('MISSING:', missing.join\\(', '\\)\\); process.exit\\(1\\); } else { console.log\\('OK: All exports present'\\); exports.forEach\\(e => console.log\\('  -', e\\)\\); }\")",
+      "PowerShell(New-Item *)",
+      "PowerShell($env:NEXT_TELEMETRY_DISABLED = '1'; Start-Process -FilePath \"npm\" -ArgumentList \"run\",\"dev\" -WorkingDirectory \"C:\\\\Users\\\\itsdo\\\\Code-Projects\\\\Gatekeeper\" -WindowStyle Hidden -PassThru; Start-Sleep -Seconds 15; try { $result = Invoke-WebRequest -Uri \"http://localhost:3000\" -UseBasicParsing -TimeoutSec 10; Write-Host \"HTTP status:\" $result.StatusCode } catch { Write-Host \"Error:\" $_.Exception.Message })",
+      "PowerShell(\\(Get-Command npm -ErrorAction SilentlyContinue\\).Source; \\(Get-Command node -ErrorAction SilentlyContinue\\).Source)",
+      "Bash(command -v npm node)",
+      "Bash(npm --version)",
+      "PowerShell($env:NEXT_TELEMETRY_DISABLED = '1'; Start-Process -FilePath \"C:\\\\Program Files\\\\nodejs\\\\npm.cmd\" -ArgumentList \"run\",\"dev\" -WorkingDirectory \"C:\\\\Users\\\\itsdo\\\\Code-Projects\\\\Gatekeeper\" -WindowStyle Hidden -PassThru; Start-Sleep -Seconds 18; try { $result = Invoke-WebRequest -Uri \"http://localhost:3000\" -UseBasicParsing -TimeoutSec 10; Write-Host \"HTTP status:\" $result.StatusCode } catch { Write-Host \"Error:\" $_.Exception.Message })",
+      "PowerShell(netstat *)",
+      "PowerShell($env:NEXT_TELEMETRY_DISABLED = '1'; $proc = Start-Process -FilePath \"C:\\\\Program Files\\\\nodejs\\\\npm.cmd\" -ArgumentList \"run\",\"dev\" -WorkingDirectory \"C:\\\\Users\\\\itsdo\\\\Code-Projects\\\\Gatekeeper\" -RedirectStandardOutput \"C:\\\\Users\\\\itsdo\\\\Code-Projects\\\\Gatekeeper\\\\dev-out.txt\" -RedirectStandardError \"C:\\\\Users\\\\itsdo\\\\Code-Projects\\\\Gatekeeper\\\\dev-err.txt\" -PassThru; Write-Host \"PID:\" $proc.Id; Start-Sleep -Seconds 25; Get-Content \"C:\\\\Users\\\\itsdo\\\\Code-Projects\\\\Gatekeeper\\\\dev-out.txt\" -ErrorAction SilentlyContinue; Get-Content \"C:\\\\Users\\\\itsdo\\\\Code-Projects\\\\Gatekeeper\\\\dev-err.txt\" -ErrorAction SilentlyContinue)",
+      "PowerShell($env:PATH = \"C:\\\\Program Files\\\\nodejs;$env:PATH\"; $env:NEXT_TELEMETRY_DISABLED = '1'; $proc = Start-Process -FilePath \"C:\\\\Program Files\\\\nodejs\\\\npm.cmd\" -ArgumentList \"run\",\"dev\" -WorkingDirectory \"C:\\\\Users\\\\itsdo\\\\Code-Projects\\\\Gatekeeper\" -RedirectStandardOutput \"C:\\\\Users\\\\itsdo\\\\Code-Projects\\\\Gatekeeper\\\\dev-out2.txt\" -RedirectStandardError \"C:\\\\Users\\\\itsdo\\\\Code-Projects\\\\Gatekeeper\\\\dev-err2.txt\" -PassThru -NoNewWindow; Write-Host \"PID:\" $proc.Id; Start-Sleep -Seconds 25; Get-Content \"C:\\\\Users\\\\itsdo\\\\Code-Projects\\\\Gatekeeper\\\\dev-out2.txt\" -ErrorAction SilentlyContinue; Write-Host \"---STDERR---\"; Get-Content \"C:\\\\Users\\\\itsdo\\\\Code-Projects\\\\Gatekeeper\\\\dev-err2.txt\" -ErrorAction SilentlyContinue)",
+      "PowerShell(try { $result = Invoke-WebRequest -Uri \"http://localhost:3000\" -UseBasicParsing -TimeoutSec 10; Write-Host \"HTTP status:\" $result.StatusCode } catch { Write-Host \"Error:\" $_.Exception.Message })",
+      "Bash(docs\")",
+      "PowerShell(cd \"C:\\\\Users\\\\itsdo\\\\Code-Projects\\\\Gatekeeper\"; \\(Invoke-WebRequest -Uri \"http://localhost:3000\" -UseBasicParsing -TimeoutSec 10\\).StatusCode)",
+      "PowerShell(cd \"C:\\\\Users\\\\itsdo\\\\Code-Projects\\\\Gatekeeper\"; \\(Get-Content package.json | Select-String '\"scripts\"' -A 8\\) -join \"`n\")",
+      "PowerShell(npm run *)",
+      "Bash(NEXT_TELEMETRY_DISABLED=1 npm run build)",
+      "Read(//mnt/c/Users/itsdo/Code-Projects/**)",
+      "Bash(export NEXT_TELEMETRY_DISABLED=1)",
+      "PowerShell(cd \"C:\\\\Users\\\\itsdo\\\\Code-Projects\\\\Gatekeeper\"; $env:PATH += \";C:\\\\Program Files\\\\nodejs\"; $env:NEXT_TELEMETRY_DISABLED = '1'; & \"C:\\\\Program Files\\\\nodejs\\\\node.exe\" \".\\\\node_modules\\\\.bin\\\\next\" build 2>&1 | Select-Object -Last 20)",
+      "PowerShell(cd \"C:\\\\Users\\\\itsdo\\\\Code-Projects\\\\Gatekeeper\"; $env:NEXT_TELEMETRY_DISABLED = '1'; & \"C:\\\\Program Files\\\\nodejs\\\\node.exe\" \".\\\\node_modules\\\\next\\\\dist\\\\bin\\\\next\" build 2>&1 | Select-Object -Last 25)"
     ]
   }
 }
