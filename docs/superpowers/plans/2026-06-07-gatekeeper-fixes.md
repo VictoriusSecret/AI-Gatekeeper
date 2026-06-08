@@ -17,7 +17,7 @@
 | File | Changes |
 |------|---------|
 | `src/components/WelcomeScreen.jsx` | Task 1 — accept `onStartOver` prop, call it from "Start over" button |
-| `src/app/page.js` | Tasks 1, 2, 4 — pass `onStartOver` props; add `!showResume` guard on steps 1–11 |
+| `src/app/page.js` | Tasks 2, 4 — pass `onStartOver` props to WelcomeScreen and Report; add `!showResume` guard on steps 1–11 |
 | `src/app/layout.js` | Task 3 — add `<footer>` element |
 | `src/components/Report.jsx` | Tasks 4, 5 — full JSX rewrite (flat bullets, inline badges, Start Over button, PDF attribution) |
 

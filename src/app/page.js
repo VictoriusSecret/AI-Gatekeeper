@@ -124,7 +124,7 @@ export default function Home() {
 
     const s0 = save({ ...initialSession, originalProblem: problem })
     setLoading(true)
-    setLoadingLabel('calculating')
+    setLoadingLabel('understanding the problem')
 
     try {
       const result = isDemoMode
@@ -135,7 +135,7 @@ export default function Home() {
         const s1 = { ...s0, currentStep: 2, questionCount: 0 }
         setSession(s1)
         setSessionState(s1)
-        await runDiscovery(s1)
+        await runDiscovery(s1, 'understanding the problem')
       } else {
         setQualifyMsg(result.message)
         save({ ...s0, currentStep: 1 })
@@ -152,7 +152,7 @@ export default function Home() {
     setSession(s0)
     setSessionState(s0)
     setLoading(true)
-    setLoadingLabel('calculating')
+    setLoadingLabel('understanding the problem')
     try {
       const result = isDemoMode
         ? demoQualification
@@ -162,7 +162,7 @@ export default function Home() {
         const s1 = { ...s0, currentStep: 2, questionCount: 0 }
         setSession(s1)
         setSessionState(s1)
-        await runDiscovery(s1)
+        await runDiscovery(s1, 'understanding the problem')
       } else {
         setQualifyMsg(result.message)
         save({ ...s0, currentStep: 1 })
@@ -174,9 +174,9 @@ export default function Home() {
     }
   }
 
-  async function runDiscovery(s) {
+  async function runDiscovery(s, label = 'compiling problem information') {
     setLoading(true)
-    setLoadingLabel('calculating')
+    setLoadingLabel(label)
     try {
       const idx = Math.min(s.questionCount ?? 0, demoDiscoveryFlow.length - 1)
       const result = isDemoMode
@@ -188,6 +188,7 @@ export default function Home() {
           })
 
       if (result.status === 'brief_ready') {
+        setLoadingLabel('generating problem brief')
         const s2 = { ...s, currentStep: 3, problemBrief: result.problemBrief }
         setSession(s2)
         setSessionState(s2)
@@ -419,7 +420,7 @@ export default function Home() {
           )}
 
           {step === 5 && !showResume && (
-            <AutoProcessing label="calculating" onMount={runRootCause} />
+            <AutoProcessing label="conducting root cause analysis" onMount={runRootCause} />
           )}
 
           {step === 6 && !showResume && (
@@ -427,19 +428,19 @@ export default function Home() {
           )}
 
           {step === 7 && !showResume && (
-            <AutoProcessing label="calculating" onMount={runExternalResearch} />
+            <AutoProcessing label="researching the problem" onMount={runExternalResearch} />
           )}
 
           {step === 8 && !showResume && (
-            <AutoProcessing label="calculating" onMount={runResearchSynthesis} />
+            <AutoProcessing label="synthesizing inputs" onMount={runResearchSynthesis} />
           )}
 
           {step === 9 && !showResume && (
-            <AutoProcessing label="calculating" onMount={runStrategicAnalysis} />
+            <AutoProcessing label="completing strategic analysis" onMount={runStrategicAnalysis} />
           )}
 
           {step === 10 && !showResume && (
-            <AutoProcessing label="calculating" onMount={runRecommendation} />
+            <AutoProcessing label="generating report" onMount={runRecommendation} />
           )}
 
           {step === 11 && !showResume && <Report session={session} onStartOver={handleStartOver} />}
