@@ -386,11 +386,12 @@ export default function Home() {
             <WelcomeScreen
               onSubmit={handleWelcomeSubmit}
               onDemo={handleDemo}
+              onStartOver={handleStartOver}
               existingSession={showResume ? session : null}
             />
           )}
 
-          {step === 1 && (
+          {step === 1 && !showResume && (
             <Qualification
               message={qualifyMsg}
               originalProblem={session.originalProblem}
@@ -398,7 +399,7 @@ export default function Home() {
             />
           )}
 
-          {step === 2 && !loading && (
+          {step === 2 && !loading && !showResume && (
             <Discovery
               currentQuestion={currentQuestion}
               questionCount={session.questionCount}
@@ -406,42 +407,42 @@ export default function Home() {
             />
           )}
 
-          {loading && step <= 3 && step >= 2 && (
+          {loading && step <= 3 && step >= 2 && !showResume && (
             <div className="container"><LoadingSpinner label={loadingLabel} /></div>
           )}
 
-          {step === 4 && !loading && (
+          {step === 4 && !loading && !showResume && (
             <ProblemBrief
               problemStatement={session.validatedProblemStatement}
               onApprove={handleBriefApproved}
             />
           )}
 
-          {step === 5 && (
+          {step === 5 && !showResume && (
             <AutoProcessing label="calculating" onMount={runRootCause} />
           )}
 
-          {step === 6 && (
+          {step === 6 && !showResume && (
             <AutoProcessing label="reticulating splines" onMount={runResearchDecision} />
           )}
 
-          {step === 7 && (
+          {step === 7 && !showResume && (
             <AutoProcessing label="calculating" onMount={runExternalResearch} />
           )}
 
-          {step === 8 && (
+          {step === 8 && !showResume && (
             <AutoProcessing label="calculating" onMount={runResearchSynthesis} />
           )}
 
-          {step === 9 && (
+          {step === 9 && !showResume && (
             <AutoProcessing label="calculating" onMount={runStrategicAnalysis} />
           )}
 
-          {step === 10 && (
+          {step === 10 && !showResume && (
             <AutoProcessing label="calculating" onMount={runRecommendation} />
           )}
 
-          {step === 11 && <Report session={session} />}
+          {step === 11 && !showResume && <Report session={session} onStartOver={handleStartOver} />}
         </>
       )}
     </div>
