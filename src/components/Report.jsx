@@ -19,6 +19,7 @@ function SubList({ items }) {
 const li = { marginBottom: 8, listStyle: 'none' }
 const ul = { listStyle: 'none', padding: 0, margin: 0 }
 const sub = { listStyle: 'none', paddingLeft: 20, margin: '4px 0 0' }
+const deep = { listStyle: 'none', paddingLeft: 16, margin: '2px 0 0' }
 
 export default function Report({ session, onStartOver }) {
   const {
@@ -176,7 +177,7 @@ export default function Report({ session, onStartOver }) {
                       <li key={i} style={{ marginBottom: 6 }}>
                         – <strong>{alt.approach}</strong> <Badge value={alt.fit} />
                         {(alt.rationale || alt.keyTradeoffs?.length > 0) && (
-                          <ul style={{ listStyle: 'none', paddingLeft: 16, margin: '2px 0 0' }}>
+                          <ul style={deep}>
                             {alt.rationale && <li>{alt.rationale}</li>}
                             {alt.keyTradeoffs?.length > 0 && <li>Tradeoffs: {alt.keyTradeoffs.join(' · ')}</li>}
                           </ul>
