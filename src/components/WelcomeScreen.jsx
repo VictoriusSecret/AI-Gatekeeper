@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 
-export default function WelcomeScreen({ onSubmit, onDemo, existingSession }) {
+export default function WelcomeScreen({ onSubmit, onDemo, onStartOver, existingSession }) {
   const [problem, setProblem] = useState('')
   const [showResume, setShowResume] = useState(!!existingSession)
 
@@ -12,7 +12,7 @@ export default function WelcomeScreen({ onSubmit, onDemo, existingSession }) {
         <p style={{ marginBottom: 32 }}>You have a previous session in progress. Would you like to resume where you left off?</p>
         <div className="button-row">
           <button className="btn-primary" onClick={() => onSubmit(null, true)}>Resume previous session</button>
-          <button className="btn-secondary" onClick={() => setShowResume(false)}>Start over</button>
+          <button className="btn-secondary" onClick={onStartOver}>Start over</button>
         </div>
       </div>
     )
