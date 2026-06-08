@@ -28,7 +28,15 @@
       "Read(//mnt/c/Users/itsdo/Code-Projects/**)",
       "Bash(export NEXT_TELEMETRY_DISABLED=1)",
       "PowerShell(cd \"C:\\\\Users\\\\itsdo\\\\Code-Projects\\\\Gatekeeper\"; $env:PATH += \";C:\\\\Program Files\\\\nodejs\"; $env:NEXT_TELEMETRY_DISABLED = '1'; & \"C:\\\\Program Files\\\\nodejs\\\\node.exe\" \".\\\\node_modules\\\\.bin\\\\next\" build 2>&1 | Select-Object -Last 20)",
-      "PowerShell(cd \"C:\\\\Users\\\\itsdo\\\\Code-Projects\\\\Gatekeeper\"; $env:NEXT_TELEMETRY_DISABLED = '1'; & \"C:\\\\Program Files\\\\nodejs\\\\node.exe\" \".\\\\node_modules\\\\next\\\\dist\\\\bin\\\\next\" build 2>&1 | Select-Object -Last 25)"
+      "PowerShell(cd \"C:\\\\Users\\\\itsdo\\\\Code-Projects\\\\Gatekeeper\"; $env:NEXT_TELEMETRY_DISABLED = '1'; & \"C:\\\\Program Files\\\\nodejs\\\\node.exe\" \".\\\\node_modules\\\\next\\\\dist\\\\bin\\\\next\" build 2>&1 | Select-Object -Last 25)",
+      "Bash(bash *)",
+      "Bash(git checkout *)",
+      "Bash(npm run *)",
+      "Bash(git show *)",
+      "Read(//tmp/**)",
+      "Bash(git pull *)",
+      "Bash(git merge *)",
+      "Bash(git branch *)"
     ]
   }
 }
